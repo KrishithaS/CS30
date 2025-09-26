@@ -4,4 +4,4 @@
 - i'll put demos here later
 
 ## Assigments
-- [Interactive Scene](Interactive-scene)
+- [Interactive Scene](interactive-scene)
