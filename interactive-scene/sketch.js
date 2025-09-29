@@ -1,9 +1,9 @@
-// Project Title
-// Your Name
-// Date
+// Interactive Scene
+// Krishitha Saravankumar
+// 29 September, 2025
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// - explore using the mouse wheel as input
 
 
 let x;
@@ -20,7 +20,6 @@ function setup() {
 }
 
 function draw() {
-  background(220);
   showSquare();
   // showCircle();
 
@@ -70,21 +69,23 @@ function showSquare(){
       isRed = !isRed;
     }
   }
-  // for (let x = 0; x < 10;x ++){
-  //   for(let y = 0; y < 10;y ++){
-  //     if(isBlue){
-  //       fill("blue");
-  //     }
-  //     else{
-  //       fill("white");
-  //     }
-  //     square(x*squareSize, y*squareSize, squareSize);
-  //     noStroke();
-  //     isBlue = !isBlue;
-  //   }
-  //   isBlue = !isBlue;
-  // }
   
+  if(colorChange === 2){
+    for (let x = 0; x < 10;x ++){
+      for(let y = 0; y < 10;y ++){
+        if(isBlue){
+          fill("blue");
+        }
+        else{
+          fill("white");
+        }
+        square(x*squareSize, y*squareSize, squareSize);
+        noStroke();
+        isBlue = !isBlue;
+      }
+      isBlue = !isBlue;
+    }
+  }
 }
 
 function showCircle(){
