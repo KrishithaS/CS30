@@ -18,12 +18,12 @@ function setup() {
 
 function draw() {
   background(255);
-  undateLightState();
+  updateLightState();
   drawOutlineOfLights();
   showCorrectLight();
 }
 
-function undateLightState(){
+function updateLightState(){
   if (lightColor === "red" && millis() > lastSwitched + redDuration) {
     lightColor = "green";
     lastSwitched = millis(); 
@@ -56,7 +56,7 @@ function showCorrectLight(){
     fill("red");
     ellipse(width/2, height/2 - 65, 50, 50); //top
   }
-  else if (lightcolor === "green"){
+  else if (lightColor === "green"){
     fill("green");
     ellipse(width/2, height/2 + 65, 50, 50); //bottom
   }
