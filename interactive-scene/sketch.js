@@ -13,16 +13,15 @@ let squareSize = 50;
 let isRed = true;
 let isBlue = true;
 let colorChange = 0;
+let isPink = true;
+let speed = 5;
 
 function setup() {
   createCanvas(500, 500);
-  
 }
 
 function draw() {
   showSquare();
-  // showCircle();
-
 }
 
 function mouseWheel(event){
@@ -32,7 +31,6 @@ function mouseWheel(event){
   else{
     colorChange -= 1;
   }
-  
 }
 
 function showSquare(){
@@ -51,6 +49,7 @@ function showSquare(){
       }
       isGreen = !isGreen;
     }
+    showCircle();
   }
   
   if(colorChange === 1){
@@ -68,6 +67,7 @@ function showSquare(){
       }
       isRed = !isRed;
     }
+    showCircle();
   }
   
   if(colorChange === 2){
@@ -85,10 +85,48 @@ function showSquare(){
       }
       isBlue = !isBlue;
     }
+    showCircle();
+  }
+  
+  if(colorChange === 3){
+    for (let x = 0; x < 10;x ++){
+      for(let y = 0; y < 10;y ++){
+        if(isPink){
+          fill("pink");
+        }
+        else{
+          fill("white");
+        }
+        square(x*squareSize, y*squareSize, squareSize);
+        noStroke();
+        isPink = !isPink;
+      }
+      isPink = !isPink;
+    }
+    showCircle();
+  }
+  showCircle();
+}
+
+function moveCircle() {
+  if (keyIsDown(38)) { //up
+    y -= speed;
+  }
+  if (keyIsDown(40)) { //down
+    y += speed;
+  }
+  if (keyIsDown(39)) { //right
+    x += speed;
+  }
+  if (keyIsDown(37)) { //left
+    x -= speed;
   }
 }
 
 function showCircle(){
-  circle(25, 25, 50);
   fill("black");
+  circle(25, 25, 45);
+  moveCircle();
+  fill("purple");
+  circle(225, 225, 45);
 }
