@@ -41,8 +41,12 @@ function drawBackground() {
   if (colorChange === 0) {
     for (let x = 0; x < 10; x++) {
       for (let y = 0; y < 10; y++) {
-        if (isGreen) fill("lightgreen");
-        else fill("white");
+        if (isGreen){
+          fill("lightgreen");
+        }
+        else {
+          fill("white");
+        }
         square(x * size, y * size, size);
         noStroke();
         isGreen = !isGreen;
@@ -54,8 +58,12 @@ function drawBackground() {
   if (colorChange === 1) {
     for (let x = 0; x < 10; x++) {
       for (let y = 0; y < 10; y++) {
-        if (isRed) fill("red");
-        else fill("white");
+        if (isRed){
+          fill("red");
+        }
+        else{
+          fill("white");
+        }
         square(x * size, y * size, size);
         noStroke();
         isRed = !isRed;
@@ -67,8 +75,12 @@ function drawBackground() {
   if (colorChange === 2) {
     for (let x = 0; x < 10; x++) {
       for (let y = 0; y < 10; y++) {
-        if (isBlue) fill("lightblue");
-        else fill("white");
+        if (isBlue) {
+          fill("lightblue");
+        }
+        else {
+          fill("white");
+        }
         square(x * size, y * size, size);
         noStroke();
         isBlue = !isBlue;
@@ -80,8 +92,12 @@ function drawBackground() {
   if (colorChange >= 3) {
     for (let x = 0; x < 10; x++) {
       for (let y = 0; y < 10; y++) {
-        if (isPink) fill("pink");
-        else fill("white");
+        if (isPink) {
+          fill("pink");
+        }
+        else {
+          fill("white");
+        }
         square(x * size, y * size, size);
         noStroke();
         isPink = !isPink;
@@ -95,7 +111,8 @@ function drawBackground() {
 function mouseWheel(event) {
   if (event.delta > 0) {
     colorChange += 1;
-  } else {
+  } 
+  else {
     colorChange -= 1;
   }
 }
@@ -139,7 +156,8 @@ function draw() {
       score++;
       if (score >= 25) {
         gameState = "gameover"; // if reached the winning score gameover
-      } else {
+      }
+      else {
         placeFood();
       }
     }
@@ -158,7 +176,8 @@ function draw() {
     textSize(30);
     if (score >= 25) {
       text("YOU WIN!", width / 2, height / 2 - 20);
-    } else {
+    }
+    else {
       text("GAME OVER", width / 2, height / 2 - 20);
     }
     textSize(20);
