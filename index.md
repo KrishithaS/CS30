@@ -3,6 +3,7 @@
 ## Demos
 - [Trafic Lights](trafic-lights)
 - [Bouncing Balls](bouncing-balls)
+- [Generative Art](generative-art)
 
 ## Assigments
 - [Interactive Scene](interactive-scene)
