@@ -1,13 +1,13 @@
 // Generative Art Demo
 // 09 October, 2025
 
-let tileSize = 50;
+let tileSize = 20;
 let theTiles = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   for(let x = 0; x < width; x += tileSize){
-    for(let y = 0; y < height; x += tileSize){
+    for(let y = 0; y < height; y += tileSize){
       let someTile = spawnTile(x, y);
       theTiles.push(someTile);
     }
