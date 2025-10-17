@@ -35,5 +35,11 @@ function spawnObject(){
     w: 190,
     h: 290,
   };
-  return rects;
+  allRects.push(rects);
+}
+
+function mousePressed(){
+  if (mouse === x, y){
+    return rect;
+  }
 }
