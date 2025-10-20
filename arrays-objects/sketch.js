@@ -5,12 +5,12 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-let x = 220;
+let x = 230;
 let y = 300;
 let allRects = [];
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(900, 900);
   showRects();
 }
 
@@ -21,9 +21,10 @@ function draw() {
 
 function showRects(){
   fill(random(255), random(255), random(255));
-  for (let i = 0; i < 8; i ++){
-    for (let o = 0; o < 3; o ++){
-      rect(100 + x*i, 10 + y*o, 190, 280);
+  for (let i = 0; i < width; i ++){
+    for (let o = 0; o < height; o ++){
+      rect(20 + x*i, 10 + y*o, 200, 280);
+
     }
   }
 }
@@ -37,9 +38,15 @@ function spawnObject(){
   };
   allRects.push(rects);
 }
+//  function cardFlipped(){
+  
+//   }
+//  }
 
 function mousePressed(){
-  if (mouse === x, y){
-    return rect;
+  if(mouseX >= 10 && mouseY >= 10){
+    fill("black");
+    showRects();
   }
 }
+
