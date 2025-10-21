@@ -7,7 +7,7 @@
 
 let x = 230;
 let y = 300;
-let allRects = [];
+let allShapes = [];
 
 function setup() {
   createCanvas(900, 900);
@@ -24,7 +24,6 @@ function showRects(){
   for (let i = 0; i < width; i ++){
     for (let o = 0; o < height; o ++){
       rect(20 + x*i, 10 + y*o, 200, 280);
-
     }
   }
 }
@@ -35,18 +34,22 @@ function spawnObject(){
     y: 320,
     w: 190,
     h: 290,
+    r: random(225),
+    b: random(225),
+    g: random(255),
   };
-  allRects.push(rects);
+  allShapes.push(rects);
+  let circles = {
+    x: 125,
+    y: 150, 
+    d: 100,
+  };
+  allShapes.push(circles);
 }
-//  function cardFlipped(){
-  
-//   }
-//  }
 
-function mousePressed(){
-  if(mouseX >= 10 && mouseY >= 10){
-    fill("black");
-    showRects();
+
+function cardFlipped(){
+  if (mousePressed() && mouseX >= 10 && mouseY >= 10){
+    background(225);
   }
 }
-
