@@ -5,9 +5,9 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-let x = 230;
-let y = 300;
-let allShapes = [];
+let cWidth = 200;
+let cHeight = 280;
+let cards = [];
 
 function setup() {
   createCanvas(900, 900);
@@ -16,40 +16,38 @@ function setup() {
 
 function draw() {
   // background(220);
-  // showRects();
+  showRects();
 }
 
 function showRects(){
   fill(random(255), random(255), random(255));
-  for (let i = 0; i < width; i ++){
-    for (let o = 0; o < height; o ++){
-      rect(20 + x*i, 10 + y*o, 200, 280);
+  for(let rects of cards){
+    for (let i = 0; i < width; i ++){
+      for (let o = 0; o < height; o ++){
+        rect(rects.x*i, rects.y*o, rects.w, rects.h);
+      }
     }
   }
 }
 
 function spawnObject(){
   let rects = {
-    x: 220,
-    y: 320,
-    w: 190,
-    h: 290,
+    x: 230,
+    y: 300,
+    w: cWidth,
+    h: cHeight,
     r: random(225),
     b: random(225),
     g: random(255),
   };
-  allShapes.push(rects);
-  let circles = {
-    x: 125,
-    y: 150, 
-    d: 100,
-  };
-  allShapes.push(circles);
+  cards.push(rects);
 }
 
 
-function cardFlipped(){
-  if (mousePressed() && mouseX >= 10 && mouseY >= 10){
-    background(225);
+function mousePressed(){
+  for(let rects of cards){
+    if (mouseX > rects.x && mouseX < rects.x + rects.w && mouseY > rects.y && mouseY < rects.y + rects.h){
+
+    }
   }
 }
