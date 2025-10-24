@@ -7,6 +7,8 @@
 
 let cWidth = 200;
 let cHeight = 280;
+let i = 0;
+let o = 0;
 let cards = [];
 
 function setup() {
@@ -16,24 +18,24 @@ function setup() {
 
 function draw() {
   // background(220);
-  showRects();
+  // showRects();
 }
 
 function showRects(){
-  fill(random(255), random(255), random(255));
   for(let rects of cards){
-    for (let i = 0; i < width; i ++){
-      for (let o = 0; o < height; o ++){
-        rect(rects.x*i, rects.y*o, rects.w, rects.h);
-      }
-    }
+    fill(rects.r, rects.b, rects.g);
+    // for (let i = 0; i < width; i ++){
+    //   for (let o = 0; o < height; o ++){
+    rect(rects.x, rects.y, rects.w, rects.h);
   }
+  //   }
+  // }
 }
 
 function spawnObject(){
   let rects = {
-    x: 230,
-    y: 300,
+    x: 100,
+    y: 100,
     w: cWidth,
     h: cHeight,
     r: random(225),
