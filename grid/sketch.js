@@ -11,7 +11,9 @@
 
 //if you're going to randomize the grid, use this!
 let theGrid;
-const SQUARE_DIMENSTIONS = 4;
+const SQUARE_DIMENSTIONS = 10;
+
+
 let cellSize;
 
 function setup() {
@@ -68,7 +70,10 @@ function generateRandomGrid(cols, rows){
       if(random(100) < 50){
         newGrid[y].push(0);
       }
-      else
+      else{
+        newGrid[y].push(1);
+      }
     }
   }
+  return newGrid;
 }
