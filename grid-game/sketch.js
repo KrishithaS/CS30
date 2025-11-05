@@ -10,15 +10,16 @@ const NUMBER_OF_SQUARES = 4;
 let rows;
 let cols;
 let grid;
+let startPoint = height/2;
 
 function setup() {
-  createCanvas(windowWidth * 0.443, windowHeight *0.9);
+  createCanvas(windowWidth * 0.3, windowHeight);
   if(width < height){
     cellSize = Math.floor(width/NUMBER_OF_SQUARES);
   }
   else{
+    cellSize = Math.floor(height/NUMBER_OF_SQUARES);
   }
-  cellSize = Math.floor(height/NUMBER_OF_SQUARES);
   grid = generateEmptyGrid(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
 }
 
@@ -66,8 +67,14 @@ function displayGrid(){
   for(let y = 0; y < NUMBER_OF_SQUARES; y ++){
     for(let x = 0; x < NUMBER_OF_SQUARES; x ++){
       if(grid[y][x] === 0){
-        square(x*cellSize, y*cellSize, cellSize);
+        fill("#CDC1B4");
+        stroke("#8a7a6aff");
+        strokeWeight(10);
+        square(x*cellSize, height/3 + y*cellSize, cellSize);
       }
     }
   }
+}
+
+function score(){
 }

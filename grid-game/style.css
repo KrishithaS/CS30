@@ -1,8 +1,29 @@
-html, body {
+html{
   margin: 0;
   padding: 0;
+}
+
+body{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 canvas {
   display: block;
 }
+
+
+
+/* Tile Value 	Background Hex	Background RGB	Text Hex (Foreground)
+2	#EEE4DA	rgb(238, 228, 218)	#776E65
+4	#EDE0C8	rgb(237, 224, 200)	#776E65
+8	#F2B179	rgb(242, 177, 121)	#F9F6F2
+16	#F59563	rgb(245, 149, 99)	#F9F6F2
+32	#F67C5F	rgb(246, 124, 95)	#F9F6F2
+64	#F65E3B	rgb(246, 94, 59)	#F9F6F2
+128	#EDCF72	rgb(237, 207, 114)	#F9F6F2
+256	#EDCC61	rgb(237, 204, 97)	#F9F6F2
+512	#EDC850	rgb(237, 200, 80)	#F9F6F2
+1024	#EDC53F	rgb(237, 197, 63)	#F9F6F2
+2048	#EDC22E	rgb(237, 194, 46)	#F9F6F2 */
