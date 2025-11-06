@@ -10,7 +10,8 @@ const NUMBER_OF_SQUARES = 4;
 let rows;
 let cols;
 let grid;
-let startPoint = height/2;
+// let startPoint = height/2;
+// let gameStart = false;
 
 function setup() {
   createCanvas(windowWidth * 0.3, windowHeight);
@@ -26,10 +27,14 @@ function setup() {
 function draw() {
   background(220);
   displayGrid();
+  // start();
 }
 
-function gameStart(){
-}
+// function start(){
+//   if (gameStart === turn){
+//     generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
+//   }
+// }
 
 
 
@@ -47,7 +52,7 @@ function keyPressed(){
     //move right
   }
   else if(key === "r"){
-    //reset / start a new game
+    generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
   }
 }
 
@@ -61,6 +66,21 @@ function generateEmptyGrid(cols, rows){
     }
   }
   return newGrid;
+}
+
+function generateTwoOrFourSquare(cols, rows){
+  for(let y = 0; y < rows; y ++){
+    for(let x = 0; x < cols; x ++){
+      if(grid[y][x] === 0 && random(100) < 50){
+        if(random(100) < 50){
+          grid[y][x] = 2;
+        }
+        else{
+          grid[y][x] = 4;
+        }
+      }
+    }
+  }
 }
 
 function displayGrid(){
