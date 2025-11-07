@@ -10,6 +10,7 @@ const NUMBER_OF_SQUARES = 4;
 let rows;
 let cols;
 let grid;
+let gameOn = false;
 // let startPoint = height/2;
 // let gameStart = false;
 
@@ -27,6 +28,9 @@ function setup() {
 function draw() {
   background(220);
   displayGrid();
+  if(gameOn){
+    updateGrid();
+  }
   // start();
 }
 
@@ -71,7 +75,7 @@ function generateEmptyGrid(cols, rows){
 function generateTwoOrFourSquare(cols, rows){
   for(let y = 0; y < rows; y ++){
     for(let x = 0; x < cols; x ++){
-      if(grid[y][x] === 0 && random(100) < 50){
+      if(grid[y][x] === 0){
         if(random(100) < 50){
           grid[y][x] = 2;
         }
@@ -83,17 +87,44 @@ function generateTwoOrFourSquare(cols, rows){
   }
 }
 
+function updateGrid(){
+  for(let y = 0; y < NUMBER_OF_SQUARES; y++){
+    for(let x = 0; x < NUMBER_OF_SQUARES; x++){
+      if(grid[y][x] === 2){
+        fill("#e7dbcfff");
+      }
+      else if(grid[y][x] === 4){
+        fill("#e2d4baff");
+      }
+      else if(grid[y][x] === 8){
+
+      }
+      else if(grid[y][x] === 16){
+        
+      }
+      else if(grid[y][x] === 32){
+        
+      }
+      else if(grid[y][x] === 4){
+        
+      }
+      square(x*cellSize, height/3 + y*cellSize, cellSize);
+    }
+  }
+}
+
 function displayGrid(){
   for(let y = 0; y < NUMBER_OF_SQUARES; y ++){
     for(let x = 0; x < NUMBER_OF_SQUARES; x ++){
       if(grid[y][x] === 0){
-        fill("#CDC1B4");
-        stroke("#8a7a6aff");
-        strokeWeight(10);
+        fill("#c9bfb5ff");
+        stroke("#928271ff");
+        strokeWeight(5);
         square(x*cellSize, height/3 + y*cellSize, cellSize);
       }
     }
   }
+  gameOn = true;
 }
 
 function score(){
