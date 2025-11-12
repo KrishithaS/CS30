@@ -11,6 +11,7 @@ let rows;
 let cols;
 let grid;
 let gameOn = false;
+let score = 0;
 // let startPoint = height/2;
 // let gameStart = false;
 
@@ -73,16 +74,21 @@ function generateEmptyGrid(cols, rows){
 }
 
 function generateTwoOrFourSquare(cols, rows){
+  let twoOrFour = [];
   for(let y = 0; y < rows; y ++){
     for(let x = 0; x < cols; x ++){
       if(grid[y][x] === 0){
-        if(random(100) < 50){
-          grid[y][x] = 2;
-        }
-        else{
-          grid[y][x] = 4;
-        }
+        twoOrFour.push(x, y);
       }
+    }
+  }
+  if(twoOrFour.length > 0){
+    pickRandom = random(empty);
+    if(grid[pickRandom.y][pickRandom.x] && random(100) > 50){
+      newGrid.push(2);
+    }
+    else if(grid[pickRandom.y][pickRandom.x]){
+      newGrid.push(4);
     }
   }
 }
@@ -97,16 +103,31 @@ function updateGrid(){
         fill("#e2d4baff");
       }
       else if(grid[y][x] === 8){
-
+        fill("#F2B179");
       }
       else if(grid[y][x] === 16){
-        
+        fill("#F59563");
       }
       else if(grid[y][x] === 32){
-        
+        fill("#F67C5F");
       }
-      else if(grid[y][x] === 4){
-        
+      else if(grid[y][x] === 64){
+        fill("#F65E3B");
+      }
+      else if(grid[y][x] === 128){
+        fill("#EDCF72");
+      }
+      else if(grid[y][x] === 256){
+        fill("#EDCC61");
+      }
+      else if(grid[y][x] === 512){
+        fill("#EDC850");
+      }
+      else if(grid[y][x] === 1024){
+        fill("#EDC53F");
+      }
+      else if(grid[y][x] === 2048){
+        fill("#EDC22E");
       }
       square(x*cellSize, height/3 + y*cellSize, cellSize);
     }
@@ -127,5 +148,7 @@ function displayGrid(){
   gameOn = true;
 }
 
-function score(){
+function displayScore(){
+
+  Text("Score: " + score);
 }
