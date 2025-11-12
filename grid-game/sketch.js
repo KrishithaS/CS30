@@ -29,6 +29,7 @@ function setup() {
 function draw() {
   background(220);
   displayGrid();
+  displayScore();
   if(gameOn){
     updateGrid();
   }
@@ -45,16 +46,20 @@ function draw() {
 
 function keyPressed(){
   if(key === "w"){
-    //move up
+    moveUp();
+    generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
   }
   else if(key === "s"){
-    //move down
+    moveDown();
+    generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
   }
   else if(key === "a"){
-    //move left
+    moveLeft();
+    generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
   }
   else if(key === "d"){
-    //move right
+    moveRight();
+    generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
   }
   else if(key === "r"){
     generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
@@ -78,17 +83,49 @@ function generateTwoOrFourSquare(cols, rows){
   for(let y = 0; y < rows; y ++){
     for(let x = 0; x < cols; x ++){
       if(grid[y][x] === 0){
-        twoOrFour.push(x, y);
+        twoOrFour.push(grid[y][x]);
       }
     }
   }
   if(twoOrFour.length > 0){
-    pickRandom = random(empty);
-    if(grid[pickRandom.y][pickRandom.x] && random(100) > 50){
-      newGrid.push(2);
+    pickRandom = random(twoOrFour);
+    if(random(100) > 50){
+      grid[pickRandom.y][pickRandom.x] = 2;
     }
-    else if(grid[pickRandom.y][pickRandom.x]){
-      newGrid.push(4);
+    else{
+      grid[pickRandom.y][pickRandom.x] = 4;
+    }
+  }
+}
+
+function moveLeft(grid){
+  for(let x = 0; x < NUMBER_OF_SQUARES; x++){
+    while(x > 0 && grid[y][x] === 0){
+      x = x - 1;
+    }
+  }
+}
+
+function moveRight(grid){
+  for(let x = 0; x < NUMBER_OF_SQUARES; x ++){
+    while(x < NUMBER_OF_SQUARES && grid[y][x] === 0){
+      x = x + 1;
+    }
+  }
+}
+
+function moveUp(grid){
+  for(let y = 0; y < NUMBER_OF_SQUARES; y ++){
+    while(y > 0 && grid[y][x] === 0){
+      y = y - 1;
+    }
+  }
+}
+
+function moveDown(grid){
+  for(let y = 0; y < NUMBER_OF_SQUARES; y ++){
+    while(y < NUMBER_OF_SQUARES && grid[y][x] === 0){
+      y = y + 1;
     }
   }
 }
@@ -149,6 +186,6 @@ function displayGrid(){
 }
 
 function displayScore(){
-
-  Text("Score: " + score);
+  textAlign(CENTER);
+  text("Score: ");
 }
