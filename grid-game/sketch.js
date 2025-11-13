@@ -12,6 +12,7 @@ let cols;
 let grid;
 let gameOn = false;
 let score = 0;
+let move = false;
 // let startPoint = height/2;
 // let gameStart = false;
 
@@ -79,37 +80,53 @@ function generateEmptyGrid(cols, rows){
 }
 
 function generateTwoOrFourSquare(cols, rows){
-  let twoOrFour = [];
+  let twoOrFourX = [];
+  let twoOrFourY = [];
   for(let y = 0; y < rows; y ++){
     for(let x = 0; x < cols; x ++){
       if(grid[y][x] === 0){
-        twoOrFour.push(grid[y][x]);
+        twoOrFourX.push(x);
+        twoOrFourY.push(y);
       }
     }
   }
-  if(twoOrFour.length > 0){
-    pickRandom = random(twoOrFour);
+  if(twoOrFourX.length > 0){
+    let randomPick = random(twoOrFourX.length);
+    let x = twoOrFourX[randomPick];
+    let y = twoOrFourY[randomPick];
     if(random(100) > 50){
-      grid[pickRandom.y][pickRandom.x] = 2;
+      grid[y][x] = 2;
     }
     else{
-      grid[pickRandom.y][pickRandom.x] = 4;
-    }
-  }
-}
-
-function moveLeft(grid){
-  for(let x = 0; x < NUMBER_OF_SQUARES; x++){
-    while(x > 0 && grid[y][x] === 0){
-      x = x - 1;
+      grid[y][x] = 4;
     }
   }
 }
 
 function moveRight(grid){
-  for(let x = 0; x < NUMBER_OF_SQUARES; x ++){
+  for(let x = 0; x < NUMBER_OF_SQUARES; x++){
     while(x < NUMBER_OF_SQUARES && grid[y][x] === 0){
-      x = x + 1;
+      x = x - 1;
+    }
+  }
+}
+
+function moveLeft(grid){
+  let nowX; // current place of the block
+  for(let y = 0; y < NUMBER_OF_SQUARES; y ++){
+    for(let x = 1; x < NUMBER_OF_SQUARES; x ++){
+      if(grid[y][x] !== 0){
+        nowX = x;
+      }
+      while(nowX > 0 && grid[y][nowX - 1] === 0){
+        grid[y][nowX - 1] = grid[y][nowX];
+        grid[y][nowX] = 0;
+        nowX = nowX - 1;
+      }
+
+      if(nowX > 0 && grid[y][nowX - 1] === grid[y][nowX]){
+        grid[y][nowX - 1] = grid[y][nowX - 1] + grid[y][now];
+      }
     }
   }
 }
