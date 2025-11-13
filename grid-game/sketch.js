@@ -5,6 +5,7 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
+//Gobal Variables
 let cellSize;
 const NUMBER_OF_SQUARES = 4;
 let rows;
@@ -15,6 +16,7 @@ let score = 0;
 let move = false;
 
 function setup() {
+  //creating the canvas
   createCanvas(windowWidth * 0.3, windowHeight);
   if(width < height){
     cellSize = Math.floor(width/NUMBER_OF_SQUARES);
@@ -23,7 +25,8 @@ function setup() {
     cellSize = Math.floor(height/NUMBER_OF_SQUARES);
   }
   grid = generateEmptyGrid(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
-
+  
+  //Generating the first 2 ransom 2 or 4 blocks
   generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
   generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
 }
@@ -35,7 +38,7 @@ function draw() {
 }
 
 
-
+// Used WASD to move 
 function keyPressed(){
   move = false;
 
@@ -51,6 +54,8 @@ function keyPressed(){
   else if(key === "d"){
     moveRight();
   }
+
+  //To restart the game
   else if(key === "r"){
     grid = generateEmptyGrid(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
     generateTwoOrFourSquare(NUMBER_OF_SQUARES, NUMBER_OF_SQUARES);
@@ -63,11 +68,13 @@ function keyPressed(){
   }
 }
 
-
+//Creating a empty grid
 function generateEmptyGrid(cols, rows){
   let newGrid = [];
+
   for(let y = 0; y < rows; y ++){
     newGrid.push([]);
+
     for(let x = 0; x < cols; x ++){
       newGrid[y].push(0);
     }
@@ -75,21 +82,27 @@ function generateEmptyGrid(cols, rows){
   return newGrid;
 }
 
+//Random 2 or 4 in a random [y][x] location
 function generateTwoOrFourSquare(cols, rows){
   let twoOrFourX = [];
   let twoOrFourY = [];
+
   for(let y = 0; y < rows; y ++){
     for(let x = 0; x < cols; x ++){
+
       if(grid[y][x] === 0){
         twoOrFourX.push(x);
         twoOrFourY.push(y);
       }
     }
   }
+
   if(twoOrFourX.length > 0){
     let randomPick = Math.floor(random(twoOrFourX.length));
+
     let x = twoOrFourX[randomPick];
     let y = twoOrFourY[randomPick];
+
     if(random(100) > 50){
       grid[y][x] = 2;
     }
@@ -99,6 +112,7 @@ function generateTwoOrFourSquare(cols, rows){
   }
 }
 
+//Moves blocks right
 function moveRight(){
   move = false;
 
@@ -126,6 +140,7 @@ function moveRight(){
   }
 }
 
+//moves blocks to left
 function moveLeft(){
   move = false;
   for(let y = 0; y < NUMBER_OF_SQUARES; y ++){
@@ -152,6 +167,7 @@ function moveLeft(){
   }
 }
 
+// moves blocks up
 function moveUp(){
   move = false;
   for(let x = 0; x < NUMBER_OF_SQUARES; x ++){
@@ -178,6 +194,7 @@ function moveUp(){
   }
 }
 
+//moves block down
 function moveDown(){
   move = false;
   for(let x = 0; x < NUMBER_OF_SQUARES; x ++){
@@ -204,6 +221,7 @@ function moveDown(){
   }
 }
 
+//Fills the colors and number in the empty grid
 function displayGrid(){
   for(let y = 0; y < NUMBER_OF_SQUARES; y ++){
     for(let x = 0; x < NUMBER_OF_SQUARES; x ++){
@@ -263,6 +281,7 @@ function displayGrid(){
   gameOn = true;
 }
 
+//displays score on top
 function displayScore(){
   textAlign(CENTER);
   textSize(40);
