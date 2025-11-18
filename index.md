@@ -14,6 +14,7 @@
 - [Basic OOP](basic-oop)
 - [Walker OOP](walker-oop)
 - [Fireworks OOP](fireworks-oop)
+- [Nodes OOP](nodes)
 
 ## Assigments
 - [Interactive Scene](interactive-scene)
