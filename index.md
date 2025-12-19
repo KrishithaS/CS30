@@ -18,6 +18,7 @@
 - [OOP Inheritance](inheritance)
 - [Shape Inheritance](shape-inheritance)
 - [Collide2d](collide2d)
+- [Sierpinski Triangle](sierpinski)
 
 ## Assigments
 - [Interactive Scene](interactive-scene)
